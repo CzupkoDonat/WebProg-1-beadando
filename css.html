@@ -48,18 +48,28 @@
 
     <div class="row min-vh-100">
       <div class="col-3 bg-secondary text-white">
-        <form action="" class="mx-auto my-4">
+        <form class="mx-auto my-4">
           <div class="container justify-content-end text-end fs-5">
             <div class="mb-4 row">
               <label for="xInput" class="col-6 form-label">V.Eltolás:</label>
               <div class="col-6">
-                <input type="number" class="form-control" id="xInput" placeholder="0"/>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="xInput"
+                  placeholder="0"
+                />
               </div>
             </div>
             <div class="mb-4 row">
               <label for="yInput" class="col-6 form-label">F.Eltolás:</label>
               <div class="col-6">
-                <input type="number" class="form-control" id="yInput" placeholder="0"/>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="yInput"
+                  placeholder="0"
+                />
               </div>
             </div>
             <div class="mb-4 row">
@@ -67,7 +77,12 @@
                 >Forgatás:</label
               >
               <div class="col-6">
-                <input type="number" class="form-control" id="rotateInput" placeholder="0"/>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="rotateInput"
+                  placeholder="0"
+                />
               </div>
             </div>
             <div class="mb-4 row">
@@ -75,29 +90,75 @@
                 >Méretezés:</label
               >
               <div class="col-6">
-                <input type="number" class="form-control" id="scaleInput" placeholder="0" />
+                <input
+                  type="number"
+                  class="form-control"
+                  id="scaleInput"
+                  placeholder="0"
+                />
               </div>
             </div>
             <div class="mb-4 row">
-              <label for="skewInput" class="col-6 form-label"
-                >Ferdítás:</label
-              >
+              <label for="skewInput" class="col-6 form-label">Ferdítás:</label>
               <div class="col-6">
-                <input type="number" class="form-control" id="skewInput" placeholder="0"/>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="skewInput"
+                  placeholder="0"
+                />
               </div>
             </div>
             <div class="row">
               <div class="d-grid">
                 <input
                   type="button"
-                  class="btn btn-danger fs-3"
-                  id="deleteTranslate"
+                  class="btn btn-warning fs-3"
                   value="Transzformációk törlése"
+                  data-bs-toggle="modal"
+                  data-bs-target="#transformDelete"
                 />
               </div>
             </div>
           </div>
         </form>
+      </div>
+
+      <div
+        class="modal fade"
+        id="transformDelete"
+        tabindex="-1"
+        aria-labelledby="transformDeleteLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title fs-5" id="transformDeleteLabel">
+                Transzformációk törlése
+              </h2>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">Biztosan törölni szeretnéd a transzformációkat</div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Mégse
+              </button>
+              <button type="button" id="deleteTranslate" data-bs-dismiss="modal" class="btn btn-danger">
+                Törlés
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="col-9 d-flex justify-content-center align-self-center z-n1">
