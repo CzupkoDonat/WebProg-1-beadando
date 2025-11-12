@@ -16,3 +16,11 @@
 .bg-gray {
  background-color: gray;
 }
+
+.cube {
+  width: 100px;
+  height: 100px;
+  background-color: dodgerblue;
+  position: relative;
+  transition: transform 0.5s ease;
+}
