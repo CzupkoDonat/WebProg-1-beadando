@@ -32,3 +32,7 @@ function deleteTranslate() {
   scaleInput.value = "";
   skewInput.value = "";
 }
+
+function newToDo() {
+  
+}
