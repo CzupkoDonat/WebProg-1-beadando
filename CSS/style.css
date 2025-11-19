@@ -23,4 +23,15 @@
   background-color: dodgerblue;
   position: relative;
   transition: transform 0.5s ease;
+  --tx: 0px;
+  --ty: 0px;
+  --rot: 0deg;
+  --scale: 1;
+  --skew: 0deg;
+
+  transform:
+    translate(var(--tx), var(--ty))
+    rotate(var(--rot))
+    scale(var(--scale))
+    skewX(var(--skew));
 }

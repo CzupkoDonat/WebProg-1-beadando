@@ -1,36 +1,34 @@
-function translate() {
-  let xInput = document.getElementById("xInput");
-  let yInput = document.getElementById("yInput");
-  let rotateInput = document.getElementById("rotateInput");
-  let scaleInput = document.getElementById("scaleInput");
-  let skewInput = document.getElementById("skewInput");
-  let deleteTranslateButton = document.getElementById("deleteTranslate");
-  let cube = document.getElementById("cube");
-
-  function move() {
-    let x = Number(xInput.value);
-    let y = Number(yInput.value);
-    let rotate = Number(rotateInput.value);
-    let scale = Number(scaleInput.value) || 1;
-    let skew = Number(skewInput.value);
-    cube.style.transform = `translate(${x}px, ${y}px) rotate(${rotate}deg)  scale(${scale}) skewX(${skew}deg)`;
-  }
-
-  function deleteTranslate() {
-    cube.style.transform = `translate(${0}px, ${0}px) rotate(${0}deg)  scale(${1}) skewX(${0}deg)`
-    xInput.value = "";
-    yInput.value = "";
-    rotateInput.value = "";
-    scaleInput.value = "";
-    skewInput.value = "";;
-  }
-
-  xInput.addEventListener("input", move);
-  yInput.addEventListener("input", move);
-  rotateInput.addEventListener("input", move);
-  scaleInput.addEventListener("input", move);
-  skewInput.addEventListener("input", move);
-  deleteTranslateButton.addEventListener("click", deleteTranslate)
+function changeTranslateX(event) {
+  cube.style.setProperty("--tx", `${event.target.value}px`);
 }
 
-document.addEventListener("DOMContentLoaded", translate);
+function changeTranslateY(event) {
+  cube.style.setProperty("--ty", `${event.target.value}px`);
+}
+
+function changeRotation(event) {
+  cube.style.setProperty("--rot", `${event.target.value}deg`);
+}
+
+function changeScale(event) {
+  let val = event.target.value || 1;
+  cube.style.setProperty("--scale", val);
+}
+
+function changeSkew(event) {
+  cube.style.setProperty("--skew", `${event.target.value}deg`);
+}
+
+function deleteTranslate() {
+  cube.style.setProperty("--tx", `0px`);
+  cube.style.setProperty("--ty", `0px`);
+  cube.style.setProperty("--rot", `0deg`);
+  cube.style.setProperty("--scale", `1`);
+  cube.style.setProperty("--skew", `0deg`);
+
+  xInput.value = "";
+  yInput.value = "";
+  rotateInput.value = "";
+  scaleInput.value = "";
+  skewInput.value = "";
+}

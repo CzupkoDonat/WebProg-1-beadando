@@ -58,7 +58,7 @@
                   class="form-control"
                   id="xInput"
                   placeholder="0"
-                />
+                oninput="changeTranslateX(event)" />
               </div>
             </div>
             <div class="mb-4 row">
@@ -69,7 +69,7 @@
                   class="form-control"
                   id="yInput"
                   placeholder="0"
-                />
+                oninput="changeTranslateY(event)"  />
               </div>
             </div>
             <div class="mb-4 row">
@@ -82,7 +82,7 @@
                   class="form-control"
                   id="rotateInput"
                   placeholder="0"
-                />
+                oninput="changeRotation(event)"  />
               </div>
             </div>
             <div class="mb-4 row">
@@ -95,7 +95,7 @@
                   class="form-control"
                   id="scaleInput"
                   placeholder="0"
-                />
+                oninput="changeScale(event)" />
               </div>
             </div>
             <div class="mb-4 row">
@@ -106,7 +106,7 @@
                   class="form-control"
                   id="skewInput"
                   placeholder="0"
-                />
+                oninput="changeSkew(event)"  />
               </div>
             </div>
             <div class="row">
@@ -144,7 +144,9 @@
                 aria-label="Close"
               ></button>
             </div>
-            <div class="modal-body">Biztosan törölni szeretnéd a transzformációkat</div>
+            <div class="modal-body">
+              Biztosan törölni szeretnéd a transzformációkat
+            </div>
             <div class="modal-footer">
               <button
                 type="button"
@@ -153,7 +155,13 @@
               >
                 Mégse
               </button>
-              <button type="button" id="deleteTranslate" data-bs-dismiss="modal" class="btn btn-danger">
+              <button
+                type="button"
+                id="deleteTranslate"
+                data-bs-dismiss="modal"
+                class="btn btn-danger"
+                onclick="deleteTranslate()"
+              >
                 Törlés
               </button>
             </div>
