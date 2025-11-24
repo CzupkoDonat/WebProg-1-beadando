@@ -28,7 +28,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link"href="index.html">Rólam</a>
+              <a class="nav-link" href="index.html">Rólam</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="css.html">CSS</a>
@@ -37,18 +37,68 @@
               <a class="nav-link" href="todo.html">TODO</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page"  href="macskak.html">Macskák</a>
+              <a class="nav-link active" aria-current="page" href="macskak.html"
+                >Macskák</a
+              >
             </li>
           </ul>
         </div>
       </div>
     </nav>
-    
+
+    <main class="container my-4">
+      <form class="row gy-2 gx-3 mb-4">
+        <div class="col-auto">
+          <label for="filterName" class="col-form-label">Név:</label>
+        </div>
+        <div class="col-md-3">
+          <input
+            type="text"
+            id="filterName"
+            class="form-control"
+          />
+        </div>
+
+        <div class="col-auto">
+          <label for="filterOrigin" class="col-form-label">Származás:</label>
+        </div>
+        <div class="col-md-3">
+          <input
+            type="text"
+            id="filterOrigin"
+            class="form-control"
+          />
+        </div>
+        <div class="col-auto">
+          <button
+            id="filterBtn"
+            type="button"
+            class="btn btn-primary"
+            onclick="loadCats()"
+          >
+            Szűrés
+          </button>
+        </div>
+      </form>
+
+      <table class="table table-striped" id="catsTable">
+        <thead>
+          <tr>
+            <th>Sorszám</th>
+            <th>Név</th>
+            <th>Származás</th>
+            <th>Hossz</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </main>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>
+    <script src="/JS/cat.js"></script>
   </body>
 </html>

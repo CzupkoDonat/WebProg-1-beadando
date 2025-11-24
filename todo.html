@@ -54,29 +54,27 @@
       <form>
         <div class="mb-4 row">
           <div class="col-10">
-            <input type="text" class="form-control" id="descriptionInput" />
+            <input type="text" class="form-control" id="toDoInput" />
           </div>
           <div class="col-2">
-            <button type="button" class="btn btn-success" onclick="newToDo()">
+            <button
+              type="button"
+              class="btn btn-success"
+              onclick="addToDo(event)"
+            >
               Hozzáadás
             </button>
           </div>
         </div>
       </form>
 
-      <ul>
-        <li class="card">
-          <div class="card-body d-inline">
-            <p class="col-10">This is some text within a card body.</p>
-            <div class="col-2">
-              <i class="fa-solid fa-check" aria-hidden="true"></i>
-              <i class="fa-solid fa-xmark" aria-hidden="true"></i>
-            </div>
-          </div>
-        </li>
+      <p>Jelenleg <span id="counter">2</span>db befejezetlen teendő van.</p>
+
+      <ul id="toDoList">
       </ul>
     </main>
 
+    <script src="/JS/todo.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
