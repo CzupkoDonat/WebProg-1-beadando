@@ -1,67 +1,51 @@
-function loadCats() {
-  const name = document.getElementById("filterName").value;
-  const origin = document.getElementById("filterOrigin").value;
+const API_BASE = "http://localhost:3000";
 
-  let url = "http://localhost:3000/cats";
-  const params = [];
+async function loadCats() {
+  const name = document.getElementById("filterName").value.trim();
+  const origin = document.getElementById("filterOrigin").value.trim();
 
-  if (name.trim() !== "") params.push(`name=${encodeURIComponent(name)}`);
-  if (origin.trim() !== "") params.push(`origin=${encodeURIComponent(origin)}`);
+  const params = new URLSearchParams();
+  if (name) params.append("name", name);
+  if (origin) params.append("origin", origin);
 
-  if (params.length > 0) {
-    url += "?" + params.join("&");
-  }
+  const url = `${API_BASE}/cats?${params.toString()}`;
 
-  fetch(url)
-    .then((response) => response.json())
-    .then((cats) => {
-      const tbody = document.querySelector("#catsTable tbody");
-      tbody.innerHTML = "";
+  try {
+    const response = await fetch(url);
+    const cats = await response.json();
 
-      cats.forEach((cat) => {
-        const tr = document.createElement("tr");
-
-        tr.innerHTML = `
+    const tbody = document.querySelector("#catsTable tbody");
+    tbody.innerHTML = cats
+      .map(cat => `
+        <tr>
           <td>${cat.id}</td>
           <td>${cat.name}</td>
           <td>${cat.origin}</td>
-          <td>
-            <button class="delete" data-id="${cat.id}">X</button>
-          </td>
-        `;
-
-        tbody.appendChild(tr);
-      });
-
-      attachDeleteEvents();
-    })
-    .catch((err) => console.error("Hiba a lekéréskor:", err));
+          <td><button class="delete" data-id="${cat.id}">X</button></td>
+        </tr>
+      `)
+      .join("");
+  } catch (err) {
+    console.error("Betöltési hiba:", err);
+  }
 }
 
-function attachDeleteEvents() {
-  const deleteButtons = document.querySelectorAll("button.delete");
+async function deleteCat(id) {
+  try {
+    const response = await fetch(`${API_BASE}/cats/${id}`, { method: "DELETE" });
+    if (!response.ok) alert("A macska nem található!");
+    loadCats();
+  } catch (err) {
+    console.error("Törlési hiba:", err);
+  }
+}
 
-  deleteButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const id = btn.getAttribute("data-id");
-
-      fetch(`http://localhost:3000/cats/${id}`, {
-        method: "DELETE",
-      })
-        .then((response) => {
-          if (!response.ok) {
-            alert("A macska nem található!");
-          }
-          return response.json();
-        })
-        .then(() => {
-          loadCats(); // Frissítjük a táblát
-        })
-        .catch((err) => console.error("Hiba törléskor:", err));
-    });
+document
+  .querySelector("#catsTable tbody")
+  .addEventListener("click", e => {
+    if (e.target.classList.contains("delete")) {
+      deleteCat(e.target.dataset.id);
+    }
   });
-}
-
-
 
 loadCats();

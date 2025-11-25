@@ -8,14 +8,13 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous"
-    >
+      crossorigin="anonymous">
     <link rel="stylesheet" href="/CSS/style.css">
   </head>
   <body>
     <header class="bg-secondary d-flex align-self-center text-white py-3">
       <p class="m-0 flex-fill text-center">Czupkó Donát</p>
-      <p class="m-0 text-end pe-3">D1P8YR</p>
+      <p class="m-0 padding-right text-end pe-3">D1P8YR</p>
     </header>
     <section id="hero" class="position-relative">
       <div class="container text-white position-absolute bottom-0">
@@ -23,33 +22,29 @@
         <p>Úgy kritizáld a szoftvereket, hogy csinálsz egy jobbat!</p>
       </div>
     </section>
-    <nav class="navbar navbar-expand-lg bg-body-secondary">
+    <nav class="navbar bg-body-secondary">
       <div class="container-fluid">
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Rólam</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="css.html"
-                >CSS</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="todo.html">TODO</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="macskak.html">Macskák</a>
-            </li>
-          </ul>
-        </div>
+        <ul class="navbar-nav flex-row">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Rólam</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="css.html">CSS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="todo.html">TODO</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="macskak.html">Macskák</a>
+          </li>
+        </ul>
       </div>
     </nav>
 
-    <div class="row min-vh-100">
-      <div class="col-3 bg-secondary text-white">
-        <form class="mx-auto my-4">
-          <div class="container justify-content-end text-end fs-5">
+    <div class="row min-vh-100 g-0">
+      <div class="col-12 col-lg-3 bg-secondary text-white">
+        <form class="mx-auto mt-4 ">
+          <div class="container-lg text-lg-end fs-5">
             <div class="mb-4 row">
               <label for="xInput" class="col-6 form-label">V.Eltolás:</label>
               <div class="col-6">
@@ -58,7 +53,7 @@
                   class="form-control"
                   id="xInput"
                   placeholder="0"
-                oninput="changeTranslateX(event)">
+                  oninput="changeTranslateX(event)">
               </div>
             </div>
             <div class="mb-4 row">
@@ -69,7 +64,8 @@
                   class="form-control"
                   id="yInput"
                   placeholder="0"
-                oninput="changeTranslateY(event)">
+                  oninput="changeTranslateY(event)"
+                >
               </div>
             </div>
             <div class="mb-4 row">
@@ -82,7 +78,8 @@
                   class="form-control"
                   id="rotateInput"
                   placeholder="0"
-                oninput="changeRotation(event)" >
+                  oninput="changeRotation(event)"
+                >
               </div>
             </div>
             <div class="mb-4 row">
@@ -95,7 +92,8 @@
                   class="form-control"
                   id="scaleInput"
                   placeholder="0"
-                oninput="changeScale(event)">
+                  oninput="changeScale(event)"
+                >
               </div>
             </div>
             <div class="mb-4 row">
@@ -106,14 +104,15 @@
                   class="form-control"
                   id="skewInput"
                   placeholder="0"
-                oninput="changeSkew(event)" >
+                  oninput="changeSkew(event)"
+                >
               </div>
             </div>
             <div class="row">
               <div class="d-grid">
                 <input
                   type="button"
-                  class="btn btn-warning fs-3"
+                  class="btn btn-warning"
                   value="Transzformációk törlése"
                   data-bs-toggle="modal"
                   data-bs-target="#transformDelete"
@@ -128,9 +127,7 @@
         class="modal fade"
         id="transformDelete"
         tabindex="-1"
-        aria-labelledby="transformDeleteLabel"
-        aria-hidden="true"
-      >
+        aria-labelledby="transformDeleteLabel">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -169,7 +166,7 @@
         </div>
       </div>
 
-      <div class="col-9 d-flex justify-content-center align-self-center z-n1">
+      <div class="col-md-12 col-lg-9 d-flex justify-content-center align-self-center z-n1">
         <div class="cube" id="cube"></div>
       </div>
     </div>

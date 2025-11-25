@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="hu">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beadandó</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="/CSS/style.css" />
+      crossorigin="anonymous">
+    <link rel="stylesheet" href="/CSS/style.css">
   </head>
   <body>
     <header class="bg-secondary d-flex align-self-center text-white py-3">
       <p class="m-0 flex-fill text-center">Czupkó Donát</p>
-      <p class="m-0 text-end pe-3">D1P8YR</p>
+      <p class="m-0 padding-right text-end pe-3">D1P8YR</p>
     </header>
     <section id="hero" class="position-relative">
       <div class="container text-white position-absolute bottom-0">
@@ -23,28 +22,24 @@
         <p>Úgy kritizáld a szoftvereket, hogy csinálsz egy jobbat!</p>
       </div>
     </section>
-    <nav class="navbar navbar-expand-lg bg-body-secondary">
-      <div class="container-fluid">
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Rólam</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="css.html">CSS</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="todo.html">TODO</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="macskak.html"
-                >Macskák</a
-              >
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+<nav class="navbar bg-body-secondary">
+  <div class="container-fluid">
+    <ul class="navbar-nav flex-row">
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">Rólam</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="css.html">CSS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="todo.html">TODO</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="macskak.html">Macskák</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
     <main class="container my-4">
       <form class="row gy-2 gx-3 mb-4">
@@ -55,8 +50,7 @@
           <input
             type="text"
             id="filterName"
-            class="form-control"
-          />
+            class="form-control">
         </div>
 
         <div class="col-auto">
@@ -66,8 +60,7 @@
           <input
             type="text"
             id="filterOrigin"
-            class="form-control"
-          />
+            class="form-control">
         </div>
         <div class="col-auto">
           <button
