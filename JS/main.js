@@ -33,6 +33,3 @@ function deleteTranslate() {
   skewInput.value = "";
 }
 
-function newToDo() {
-  
-}
