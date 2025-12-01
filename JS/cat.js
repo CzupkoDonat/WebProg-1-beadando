@@ -11,21 +11,24 @@ async function loadCats() {
   const url = `${API_BASE}/cats?${params.toString()}`;
 
   try {
-    const response = await fetch(url);
-    const cats = await response.json();
+  const response = await fetch(url);
+  const cats = await response.json();
 
-    const tbody = document.querySelector("#catsTable tbody");
-    tbody.innerHTML = cats
-      .map(cat => `
-        <tr>
-          <td>${cat.id}</td>
-          <td>${cat.name}</td>
-          <td>${cat.origin}</td>
-          <td><button class="delete" data-id="${cat.id}">X</button></td>
-        </tr>
-      `)
-      .join("");
-  } catch (err) {
+  const tbody = document.querySelector("#catsTable tbody");
+  tbody.innerHTML = '';
+
+  cats.forEach(cat => {
+    tbody.innerHTML += `
+      <tr>
+        <td>${cat.id}</td>
+        <td>${cat.name}</td>
+        <td>${cat.origin}</td>
+        <td><button class="delete" id="${cat.id}">X</button></td>
+      </tr>
+    `;
+  });
+
+} catch (err) {
     console.error("Betöltési hiba:", err);
   }
 }
@@ -44,7 +47,7 @@ document
   .querySelector("#catsTable tbody")
   .addEventListener("click", e => {
     if (e.target.classList.contains("delete")) {
-      deleteCat(e.target.dataset.id);
+      deleteCat(e.target.id);
     }
   });
 
